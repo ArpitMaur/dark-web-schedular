@@ -7,7 +7,7 @@ def headless_visit():
     # out_img = join(dirname(realpath(_file_)), "headless_screenshot.png")
     # start a virtual display
     xvfb_display = start_xvfb()
-    with TorBrowserDriver("/home/rohan/Downloads/tor-browser-linux64-12.0.1_ALL/tor-browser") as driver:
+    with TorBrowserDriver("/home/tor-browser") as driver:
     # with TorBrowserDriver("/home/tor-browser") as driver:
         driver.load_url("https://check.torproject.org")
         print(driver.page_source)

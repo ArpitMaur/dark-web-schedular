@@ -135,7 +135,7 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
 
 def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10):
     xvfb_display = start_xvfb()
-    with TorBrowserDriver("/home/rohan/Downloads/tor-browser-linux64-12.0.1_ALL/tor-browser") as driver:
+    with TorBrowserDriver("/home/tor-browser") as driver:
  
         driver.maximize_window()
         print("Site opening....")
