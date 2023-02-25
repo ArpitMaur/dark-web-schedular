@@ -1,0 +1,3 @@
+global isNodeBusy 
+isNodeBusy =False
+
