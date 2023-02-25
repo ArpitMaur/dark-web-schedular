@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from datetime import date
 from databaseConnection import collection2
 import time
+from startDisplay import *
 
 def scroll(driver):
     reached_page_end = False
@@ -103,7 +104,8 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
             print("Data not fetched!!")            
 
 def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10):
-    with TorBrowserDriver("/home/rohan/Downloads/tor-browser-linux64-12.0.1_ALL/tor-browser") as driver:
+    xvfb_display = start_xvfb()
+    with TorBrowserDriver("/home/tor-browser") as driver:
         driver.maximize_window()
         driver.get(darkweb_url)
         time.sleep(waitTime)
@@ -133,5 +135,5 @@ def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollabl
         else:  
             scrap(driver,iterator,title_xpath,body_xpath,date_xpath,darkweb_url)                      
         driver.close()
-
+    stop_xvfb(xvfb_display)
 

@@ -7,6 +7,7 @@ from databaseConnection import collection2
 from datetime import date
 import pymongo
 import time
+from startDisplay import *
 
 
 def scroll(driver):
@@ -120,8 +121,8 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
             print("Data not fetched!!")        
 
 def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10):
-
-    with TorBrowserDriver("/home/rohan/Downloads/tor-browser-linux64-12.0.1_ALL/tor-browser") as driver:
+    xvfb_display = start_xvfb()
+    with TorBrowserDriver("/home/tor-browser") as driver:
  
         driver.maximize_window()
         driver.get(darkweb_url)
@@ -210,3 +211,4 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
             scrap_nonSpa (driver,post_links,title_xpath,body_xpath,date_xpath)   
 
         driver.close()
+    stop_xvfb(xvfb_display)    
