@@ -1,6 +1,6 @@
 from flask import Flask
 from databaseConnection import *
-from mainScrapping import *
+from mainScrapping import getfunction1,getfunction2
 from datetime import date,datetime,timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from flag import *

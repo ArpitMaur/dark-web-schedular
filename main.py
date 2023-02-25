@@ -1,12 +1,19 @@
-from flask import Flask
+# from flask import Flask
 from databaseConnection import *
-from mainScrapping import *
+# from mainScrapping import *
 from datetime import date,datetime,timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from flag import *
-from chechSPA_nonSPA import *
+# from flask import Flask, jsonify, request
+from chechSPA_nonSPA import getfunction
+# from flask_cors import CORS
+# from flask_socketio import SocketIO
+from app import app, socketio
+
+
 # Flask...
-app = Flask(__name__)
+
+
 def scrapping():
     print(datetime.now())
     if (isNodeBusy!=True):
@@ -25,7 +32,7 @@ def scrapping():
     else:
         print("Node is Busy!!")        
         
-
+   
 scrapping()
 # Scheduler..
 sched = BackgroundScheduler(daemon=True)
@@ -34,8 +41,10 @@ sched.start()
 
 @app.route('/')
 def hello_world():
-	return 'Hello Darkweb!!'
+	return 'Hello Darkweb!!'  
+
+
 
 # main flask function
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app, debug=True)

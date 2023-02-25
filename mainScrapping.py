@@ -1,9 +1,9 @@
 from statusHandler import *
 from databaseConnection import *
 from flag import *
-
-from spa import *
-from  non_spa import*
+from Spa import spa
+from  non_spa import Non_spa
+from flag import sendData,sendLog
 
 # Scrapping...
 # global isNodeBusy
@@ -11,6 +11,7 @@ isNodeBusy = False
 
 def getfunction1(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollable,clickable,clickable_btn_xpath,pagination,is_nextbtn,xpath_of_next_btn,xpath_of_pagination_container,tag_name_of_pages,waitTime,failedCount):
         print("Scrapping in progress...")
+        sendLog("Scrapping in progress...")
         isNodeBusy =True
         try:              
                 print(darkweb_url,"is Scrapping now...")

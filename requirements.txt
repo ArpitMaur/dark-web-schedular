@@ -4,3 +4,5 @@ pymongo
 apscheduler
 PyVirtualDisplay
 tbselenium
+flask_cors
+flask_socketio
