@@ -8,8 +8,7 @@ from databaseConnection import collection2
 import time
 from startDisplay import *
 from flag import sendLog,sendData
-from driverpath import path
-import pymongo
+from driverpath import torPath
 
 def scroll(driver):
     reached_page_end = False
@@ -132,7 +131,7 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
 
 def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10):
     xvfb_display = start_xvfb()
-    with TorBrowserDriver(path) as driver:
+    with TorBrowserDriver(torPath) as driver:
         driver.maximize_window()
         print("Site opening....")
         sendLog('Site opening....')
@@ -176,5 +175,3 @@ def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollabl
             scrap(driver,iterator,title_xpath,body_xpath,date_xpath,darkweb_url)                      
         driver.close()
     stop_xvfb(xvfb_display)
-
-# spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10)
