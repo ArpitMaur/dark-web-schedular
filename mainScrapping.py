@@ -5,6 +5,7 @@ from Spa import spa
 from  non_spa import Non_spa
 from flag import sendData,sendLog
 
+
 # Scrapping...
 # global isNodeBusy
 isNodeBusy = False

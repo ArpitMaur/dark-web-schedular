@@ -1,0 +1,1 @@
+path ="/home/rohan/Downloads/tor-browser-linux64-12.0.1_ALL/tor-browser"

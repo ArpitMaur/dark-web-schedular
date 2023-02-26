@@ -1,5 +1,4 @@
 import pymongo
-
 # MongoDb Connection...
 client =pymongo.MongoClient("mongodb+srv://emseccomandcenter:TUXnEN09VNM1drh3@cluster0.psiqanw.mongodb.net/?retryWrites=true&w=majority")
 

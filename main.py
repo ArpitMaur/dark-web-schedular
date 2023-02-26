@@ -1,5 +1,6 @@
 # from flask import Flask
 from databaseConnection import *
+
 # from mainScrapping import *
 from datetime import date,datetime,timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -8,7 +9,7 @@ from flag import *
 from chechSPA_nonSPA import getfunction
 # from flask_cors import CORS
 # from flask_socketio import SocketIO
-from app import app, socketio
+from app import app
 
 
 # Flask...
@@ -32,12 +33,7 @@ def scrapping():
     else:
         print("Node is Busy!!")        
         
-   
-scrapping()
-# Scheduler..
-sched = BackgroundScheduler(daemon=True)
-sched.add_job(scrapping,'interval',minutes=1)
-sched.start()
+
 
 @app.route('/')
 def hello_world():
@@ -47,4 +43,13 @@ def hello_world():
 
 # main flask function
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    # socketio.run(app, debug=True)
+    app.run(debug=True)
+
+
+
+scrapping()
+# Scheduler..
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(scrapping,'interval',minutes=1)
+sched.start()
