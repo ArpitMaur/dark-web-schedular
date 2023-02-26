@@ -16,13 +16,13 @@ def scroll(driver):
     while not reached_page_end:
         driver.find_element(By.XPATH,'//body').send_keys(Keys.END)   
         time.sleep(15)
-        print("Scrolling....")
-        sendLog("Scrolling....")
+        print("Website is Scrolling now...")
+        sendLog("Website is Scrolling now...")
         new_height = driver.execute_script("return document.body.scrollHeight")
         if last_height == new_height:
                 reached_page_end = True
-                print("Page ended")
-                sendLog("Page ended")
+                print("Page ended...Scrolling Done!!")
+                sendLog("Page ended...Scrolleing Done!!")
         else:
                 last_height = new_height
 
@@ -38,31 +38,35 @@ def press_next_btn(driver,xpath_of_next_btn) :
             next_btn.click()
             return True
         else :
-            print("Reached at last page")
-            sendLog("Reached at last page")
+            print("Reached at last page!!")
+            sendLog("Reached at last page!!")
             return False
 
     except NoSuchElementException:
-        print("Reached at last page")
-        sendLog("Reached at last page")
+        print("Reached at last page!!")
+        sendLog("Reached at last page!!")
         return False
     except ElementNotInteractableException:
-        print("Reached at last page")
-        sendLog("Reached at last page")
+        print("Reached at last page!!")
+        sendLog("Reached at last page!!")
         return False
 
 def no_next_btn(driver,i,xpath_of_pagination_container,tag_name_of_pages) :
     time.sleep(10)
     pagination_container = driver.find_element(By.XPATH,str(xpath_of_pagination_container))
+    # print("The Number of pagination containers are: ",pagination_container)
+    # sendLog("The Number of pagination containers are: ",pagination_container)
     all_pages = pagination_container.find_elements(By.TAG_NAME,str(tag_name_of_pages))
+    # print("The number of pages are: ",all_pages)
+    # sendLog("The number of pages are: ",all_pages)
     if len(all_pages) == i :
-        print("Reached at last page")
-        sendLog("Reached at last page")
+        print("Reached at last page!!")
+        sendLog("Reached at last page!!")
         return False
     next_page = all_pages[i]
     driver.execute_script("arguments[0].scrollIntoView();", next_page)
-    print("Opening next page")
-    sendLog("Opening next page")
+    print("Opening next page...please wait...")
+    sendLog("Opening next page...please wait...")
     next_page.click()
     return True                
 
@@ -106,12 +110,13 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
         except:
             date='Not found'
 
-        print("Data scraped")    
-        sendLog("Data scraped")    
+        print("Data scrapped!!")    
+        sendLog("Data scrapped!!")    
          
 
         if title !='Not found':
             print("Data storing in DB....")        
+            sendLog("Data storing in DB....")        
             db_dict = {'Title': title, 'Body': body_data, 'Date': date, 'Url': link}
             existing_data = collection2.find_one({'Title': title})
 
@@ -133,31 +138,34 @@ def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollabl
     xvfb_display = start_xvfb()
     with TorBrowserDriver(torPath) as driver:
         driver.maximize_window()
-        print("Site opening....")
-        sendLog('Site opening....')
+        print("Website is opening....")
+        sendLog("Website is opening....")
         driver.get(darkweb_url)
         print("Waiting....")
+        print("Sleep time is ",waitTime," sec")
         sendLog("Waiting....")
-
+        sendLog("Sleep time is ",waitTime," sec")
+        
         time.sleep(waitTime)
-        print("Site opend")
-        sendLog("Site opend")
+        
+        print("Site opened")
+        sendLog("Site opened")
 
         if scrollable==True:
-            print("Site is scrollable")
-            sendLog("Site is scrollable")
+            print("Site is scrollable...please wait")
+            sendLog("Site is scrollable...please wait")
             scroll(driver)
 
         while clickable == True :
-            print("Site is clickable")
-            sendLog("Site is clickable")
+            print("Site is clickable...")
+            sendLog("Site is clickable...")
             if clickable_btn_xpath!=None:
                 clickable = press_next_btn(driver,clickable_btn_xpath)
             
 
         if pagination == True:
-            print("Site contains pagination")
-            sendLog("Site contains pagination")
+            print("Site contains pagination...")
+            sendLog("Site contains pagination...")
             i=0
             while pagination == True :
                 scrap(driver,iterator,title_xpath,body_xpath,date_xpath,darkweb_url)
@@ -175,3 +183,7 @@ def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollabl
             scrap(driver,iterator,title_xpath,body_xpath,date_xpath,darkweb_url)                      
         driver.close()
     stop_xvfb(xvfb_display)
+
+# spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10)
+
+

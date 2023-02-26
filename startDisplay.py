@@ -10,7 +10,7 @@ def headless_visit():
     with TorBrowserDriver(torPath) as driver:
     # with TorBrowserDriver("/home/tor-browser") as driver:
         driver.load_url("https://check.torproject.org")
-        print(driver.page_source)
+        # print(driver.page_source)
         # driver.get_screenshot_as_file(out_img)
         # print("Screenshot is saved as %s" % out_img)
 
