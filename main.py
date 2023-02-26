@@ -10,6 +10,7 @@ from chechSPA_nonSPA import getfunction
 # from flask_cors import CORS
 # from flask_socketio import SocketIO
 from app import app
+import time
 
 
 # Flask...
@@ -18,6 +19,7 @@ from app import app
 def scrapping():
     print(datetime.now())
     if (isNodeBusy!=True):
+        time.sleep(5)
         if collection.count_documents({'isUrgent':True})>0:
                 print(f"No of urgent website :{collection.count_documents({'isUrgent':True})}")
                 urgent1=collection.find({"isUrgent":True,"status":{"$ne":"running"}},{})
@@ -45,8 +47,6 @@ def hello_world():
 if __name__ == '__main__':
     # socketio.run(app, debug=True)
     app.run(debug=True)
-
-
 
 scrapping()
 # Scheduler..
