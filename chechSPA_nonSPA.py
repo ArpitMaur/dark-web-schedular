@@ -7,13 +7,13 @@ from flag import *
 def getfunction(data):
     if data['isSPA']:    
         # print(f"No of urgent website :{collection.count_documents({'isUrgent':True})}")
-        print("The SPA website: ",["darkweb_url"]," is Scrapping now...")
-        sendLog("The SPA website: ",["darkweb_url"]," is Scrapping now...")
+        print("The SPA website: ",data["name"]," --> ",data["darkweb_url"]," is Scrapping now...")
+        sendLog("The SPA website: ",data["name"]," --> ",data["darkweb_url"]," is Scrapping now...")
         getfunction1(data["darkweb_url"],data["iterator"],data["title_xpath"],data["body_xpath"],data["date_xpath"],data["scrollable"],data["clickable"],data["clickable_btn_xpath"],data["pagination"],data["is_nextbtn"],data["xpath_of_next_btn"],data["xpath_of_pagination_container"],data["tag_name_of_pages"],data["waitTime"],data["failedCount"]) 
     else:
         # print(f"No of urgent website :{collection.count_documents({'isUrgent':True})}")
-        print("The Non-SPA Website: ",data["darkweb_url"," is Scrapping now..."])
-        sendLog("The Non-SPA Website: ",data["darkweb_url"," is Scrapping now..."])
+        print("The Non-SPA Website: ",data["name"]," --> ",data["darkweb_url"]," is Scrapping now...")
+        sendLog("The Non-SPA Website: ",data["name"]," --> ",data["darkweb_url"]," is Scrapping now...")
         getfunction2(data["darkweb_url"],data["iterator"],data["title_xpath"],data["body_xpath"],data["date_xpath"],data["scrollable"],data["clickable"],data["clickable_btn_xpath"],data["pagination"],data["is_nextbtn"],data["xpath_of_next_btn"],data["xpath_of_pagination_container"],data["tag_name_of_pages"],data["waitTime"],data["failedCount"])
 
 

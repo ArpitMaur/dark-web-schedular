@@ -14,8 +14,7 @@ def getfunction1(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollab
         print("Scrapping in progress...")
         sendLog("Scrapping in progress...")
         isNodeBusy =True
-        try:              
-                print(darkweb_url,"is Scrapping now...")
+        try:      
                 scrapRunning(darkweb_url)
                 spa(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollable,clickable,clickable_btn_xpath,pagination,is_nextbtn,xpath_of_next_btn,xpath_of_pagination_container,tag_name_of_pages,waitTime)
                 scrapSuccess(darkweb_url)
