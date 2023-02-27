@@ -7,7 +7,7 @@ client =pymongo.MongoClient("mongodb+srv://emseccomandcenter:TUXnEN09VNM1drh3@cl
 db =client['darkWebAutomation']
 collection =db['websiteXPATH']
 print("Total Websites are : ", collection.count_documents( {} ))
-sendLog("Total Websites are : ", collection.count_documents( {} ))
+# sendLog("Total Websites are : ", collection.count_documents( {} ))
 
 #Data sump collection
 collection2 =db['dataDumpCheck']
