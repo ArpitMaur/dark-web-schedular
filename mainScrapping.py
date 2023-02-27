@@ -19,13 +19,13 @@ def getfunction1(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollab
                 spa(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollable,clickable,clickable_btn_xpath,pagination,is_nextbtn,xpath_of_next_btn,xpath_of_pagination_container,tag_name_of_pages,waitTime)
                 scrapSuccess(darkweb_url)
                 print(darkweb_url," Scrapping Done!!")
-                sendLog(darkweb_url," Scrapping Done!!")
+                sendLog(darkweb_url+" Scrapping Done!!")
                 isNodeBusy =False
         except:
                 print("Scrapping failed!!...Website not Scrapped!!---->",darkweb_url)
-                sendLog("Scrapping failed!!...Website not Scrapped!!---->",darkweb_url)
+                sendLog("Scrapping failed!!...Website not Scrapped!!---->"+darkweb_url)
                 print("FailedCount is:",failedCount+1)
-                sendLog("FailedCount is:",failedCount+1)
+                sendLog("FailedCount is:"+failedCount+1)
                 scrapFailed(darkweb_url,failedCount)
                 isNodeBusy =False
                 
