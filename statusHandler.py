@@ -1,4 +1,4 @@
-from databaseConnection import *
+from databaseConnection import collection
 from datetime import datetime
 from datetime import date
 import time
