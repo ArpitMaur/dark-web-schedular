@@ -18,12 +18,13 @@ def scroll(driver):
         driver.find_element(By.XPATH,'//body').send_keys(Keys.END)   
         time.sleep(10)
         print("Website is Scrolling now...")
-        sendLog("Website is Scrolling now...")
+        # sendLog("Website is Scrolling now...")
         new_height = driver.execute_script("return document.body.scrollHeight")
         if last_height == new_height:
                 reached_page_end = True
                 print("Page ended...Scrolling Done!!")
-                sendLog("Page ended...Scrolleing Done!!")
+                # sendLog("Page ended...Scrolling Done!!")
+                
         else:
                 last_height = new_height
 
@@ -34,22 +35,22 @@ def press_next_btn(driver,xpath_of_next_btn) :
         if next_btn.is_enabled or next_btn.is_displayed  and not 'link-unactive' in next_btn.get_attribute('class') :
             driver.execute_script("arguments[0].scrollIntoView();", next_btn)
             time.sleep(10)
-            print("Opening next page")
-            sendLog("Opening next page")
+            print("Opening next page...")
+            # sendLog("Opening next page...")
             next_btn.click()
             return True
         else :
             print("Reached at last page")
-            sendLog("Reached at last page")
+            # sendLog("Reached at last page")
             return False
 
     except NoSuchElementException:
         print("Reached at last page")
-        sendLog("Reached at last page")
+        # sendLog("Reached at last page")
         return False
     except ElementNotInteractableException:
         print("Reached at last page")
-        sendLog("Reached at last page")
+        # sendLog("Reached at last page")
         return False
 
 def no_next_btn(driver,i,xpath_of_pagination_container,tag_name_of_pages) :
@@ -58,18 +59,19 @@ def no_next_btn(driver,i,xpath_of_pagination_container,tag_name_of_pages) :
     all_pages = pagination_container.find_elements(By.TAG_NAME,str(tag_name_of_pages))
     if len(all_pages) == i :
         print("Reached at last page!!")
-        sendLog("Reached at last page!!")
+        # sendLog("Reached at last page!!")
         return False
     next_page = all_pages[i]
     driver.execute_script("arguments[0].scrollIntoView();", next_page)
     print("Opening next page...please wait...")
-    sendLog("Opening next page...please wait...")
+    # sendLog("Opening next page...please wait...")
+
     next_page.click()
     return True                
 
 def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
     print("Data scraping....")
-    sendLog("Data scraping....")
+    # sendLog("Data scraping....")
     for lnk in post_links:
         try:
             driver.get(lnk)
@@ -111,17 +113,16 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
                 date=None    
         except:
             date='Not found'
-        print("Data scrapped!!")    
-        sendLog("Data scrapped!!")    
-
-
+        print("Data scraped!!")    
+        # sendLog("Data scraped!!")    
+        
         if title !='Not found':
-            print("Data storing in DB....")        
-            sendLog("Data storing in DB....") 
+            print("Data storing in DB....")  
+            # sendLog("Data storing in DB....")  
             db_dict = {'Title': title, 'Body': body_data, 'Date': date, 'Url': lnk}
             existing_data = collection2.find_one({'Title': title})
             print(db_dict)
-            sendData(db_dict)
+            # sendData(db_dict)
             if existing_data:
 
                 if existing_data['Body'] != body_data or existing_data['Date'] != date:
@@ -130,11 +131,12 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
             
             else:
                 collection2.insert_one(db_dict)
-            print("Data stored in DB")          
-            sendLog("Data stored in DB")          
+            print("Database Updated!!")          
+            # sendLog("Database Updated!!")          
+              
         else:
             print("Data not fetched!!")        
-            sendLog("Data not fetched!!")        
+            # sendLog("Data not fetched!!")        
 
 def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollable=False,clickable=False,clickable_btn_xpath=None,pagination = False,is_nextbtn=True,xpath_of_next_btn=None,xpath_of_pagination_container=None,tag_name_of_pages=None,waitTime=10):
     xvfb_display = start_xvfb()
@@ -142,23 +144,23 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
  
         driver.maximize_window()
         print("Website is opening....")
-        sendLog("Website is opening....")
+        # sendLog("Site opening....")
         driver.get(darkweb_url)
         print("Waiting....")
+        # sendLog("Waiting....")
         print("Sleep time is ",waitTime," sec")
-        sendLog("Waiting....")
-        sendLog("Sleep time is ",waitTime," sec")
+        # sendLog("Waiting....")
         time.sleep(waitTime)
         print("Site opened")
-        sendLog("Site opened")
+        # sendLog("Site opened")
         if scrollable==True:
             print("Site is scrollable...please wait")
-            sendLog("Site is scrollable...please wait")
+            # sendLog("Site is scrollable...please wait")
             scroll(driver)
 
         while clickable == True :
             print("Site is clickable")
-            sendLog("Site is clickable")
+            # sendLog("Site is clickable")
             if clickable_btn_xpath!=None:
                 clickable = press_next_btn(driver,clickable_btn_xpath)
 
@@ -168,7 +170,7 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
             i=0
             while pagination == True :
                 print("Site contains pagination")
-                sendLog("Site contains pagination")
+                # sendLog("Site contains pagination")
                 post_link=driver.find_elements(By.XPATH,iterator)
                 for inside_lnk in post_link:
                     try:
@@ -239,4 +241,4 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
             scrap_nonSpa (driver,post_links,title_xpath,body_xpath,date_xpath)   
 
         driver.close()
-    stop_xvfb(xvfb_display)    
+    stop_xvfb(xvfb_display)
