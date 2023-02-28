@@ -1,8 +1,8 @@
 from statusHandler import *
-from databaseConnection import isNodeBusy,collection,collection2
+from databaseConnection import *
 from flag import isNodeBusy
-from Spa import spa
-from  non_spa import Non_spa
+from Spa import *
+from  non_spa import *
 from flag import sendLog
 
 # Scrapping...

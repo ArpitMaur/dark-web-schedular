@@ -148,7 +148,7 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
         print("Waiting....")
         sendLog("Waiting....")
         print("Sleep time is ",waitTime," sec")
-        sendLog("Waiting....")
+        # sendLog("Sleep time is ",waitTime," sec")
         time.sleep(waitTime)
         print("Site opened")
         sendLog("Site opened")

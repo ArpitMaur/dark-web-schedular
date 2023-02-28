@@ -144,7 +144,7 @@ def spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrollabl
         sendLog("Waiting....")
 
         print("Sleep time is ",waitTime," sec")
-        sendLog("Sleep time is ",waitTime," sec")
+        # sendLog("Sleep time is ",waitTime," sec")
 
         time.sleep(waitTime)
         print("Site opened!!")
