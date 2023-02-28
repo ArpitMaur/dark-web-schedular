@@ -25,7 +25,7 @@ def getfunction1(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollab
                 print("not Scrapped!!---->",darkweb_url)
                 sendLog("not Scrapped!!---->",darkweb_url)
                 print("FailedCount is:",str(failedCount+1))
-                # sendLog("FailedCount is:",str(failedCount+1))  #test 2
+                sendLog("FailedCount is:",str(failedCount+1))  #test 2
                 scrapFailed(darkweb_url,failedCount) 
                 isNodeBusy =False
                 
@@ -44,9 +44,9 @@ def getfunction2(darkweb_url,iterator,title_xpath,body_xpath,date_xpath,scrollab
                 sendLog(darkweb_url," Scrapping Done!!")
                 isNodeBusy
         except:
-                print("not Scrapped!!---->",darkweb_url ," Scrapping Failed")
-                sendLog("not Scrapped!!---->",darkweb_url ," Scrapping Failed")
+                print("not Scrapped!!---->",darkweb_url )
+                sendLog("not Scrapped!!---->",darkweb_url) 
                 print("FailedCount is :",str(failedCount+1))
-                # sendLog("FailedCount is :",str(failedCount+1))
+                sendLog("FailedCount is :",str(failedCount+1)) 
                 scrapFailed(darkweb_url,failedCount)
                 isNodeBusy

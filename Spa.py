@@ -109,7 +109,7 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
             date='Not found'
 
         print("Data scrapped!!")    
-        # sendLog("Data scrapped")    
+        # sendLog("Data scrapped!!")    
          
 
         if title !='Not found':
