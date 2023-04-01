@@ -9,6 +9,7 @@ import time
 from startDisplay import *
 from flag import sendData,sendLog
 from driverpath import torPath
+from dateformat import *
 
 def scroll(driver):
     reached_page_end = False
@@ -118,14 +119,14 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
         if title !='Not found':
             print("Data storing in DB....")  
             sendLog("Data storing in DB....")  
-            db_dict = {'Title': title, 'Body': body_data, 'Date': date, 'Url': lnk}
+            db_dict = {'Title': title, 'Body': body_data, 'Date': date_coverter(date), 'Url': lnk}  #change here
             existing_data = collection2.find_one({'Title': title})
             print(db_dict)
             sendData(db_dict)
             if existing_data:
 
                 if existing_data['Body'] != body_data or existing_data['Date'] != date:
-                    update_query = {'$set': {'Body': body_data, 'Date': date, 'Url': lnk}}
+                    update_query = {'$set': {'Body': body_data, 'Date': date_coverter(date), 'Url': lnk}}
                     collection2.update_one({'Title': title}, update_query)
             
             else:

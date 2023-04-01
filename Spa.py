@@ -9,6 +9,7 @@ import time
 from startDisplay import *
 from driverpath import torPath
 from flag import sendLog,sendData
+from dateformat import *
 
 def scroll(driver):
     reached_page_end = False
@@ -115,14 +116,14 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
         if title !='Not found':
             print("Data storing in DB....")        
             sendLog("Data storing in DB....")        
-            db_dict = {'Title': title, 'Body': body_data, 'Date': date, 'Url': link}
+            db_dict = {'Title': title, 'Body': body_data, 'Date': date_coverter(date), 'Url': link} #change here
             existing_data = collection2.find_one({'Title': title})
 
             print(db_dict)
             # sendData(db_dict)
             if existing_data:
                 if existing_data['Body'] != body_data or existing_data['Date'] != date:
-                    update_query = {'$set': {'Body': body_data, 'Date': date, 'Url': link}}
+                    update_query = {'$set': {'Body': body_data, 'Date': date_coverter(date), 'Url': link}}
                     collection2.update_one({'Title': title}, update_query)
             else:
                 collection2.insert_one(db_dict)
