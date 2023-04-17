@@ -2,7 +2,7 @@ from flask import Flask
 from databaseConnection import *
 from mainScrapping import getfunction1,getfunction2
 from apscheduler.schedulers.background import BackgroundScheduler
-from flag import sendData,sendLog
+# from flag import sendData,sendLog
 
 def getfunction(data):
     if data['isSPA']:    

@@ -17,9 +17,8 @@ def clndate(date,date_formats):
 
     except:
         pass
-
 def date_formating(date_string):
-    date_formats = [ '%Y-%m-%d %H:%M:%S', '%Y-%m-%d','%m-%d-%Y', '%Y/%m/%d,%H:%M:%S', '%d-%m-%Y','%d-%m-%Y,%H:%M:%S','%m-%d-%Y,%H:%M:%S', '%d-%m-%Y %H:%M:%S', '%B %d, %Y, %I:%M %p', '%b %d, %Y, %I:%M %p', '%Y%m%dT%H%M%S.%fZ', '%Y%m%dT%H%M%S.%f%z', '%Y-%m-%dT%H:%M:%SZ', '%Y-%m-%dT%H:%M:%S.%fZ', '%Y-%m-%dT%H:%M:%S.%f%z', '%Y-%m-%dT%H:%M:%S.%f', '%Y/%m/%d', '%d.%m.%Y', '%d.%m.%Y %H:%M:%S', '%d/%m/%Y %H:%M:%S', '%d/%m/%Y %H:%M', '%d/%m/%y %H:%M:%S', '%d/%m/%y %H:%M', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %I:%M:%S %p', '%m/%d/%Y %I:%M %p', '%m/%d/%y %I:%M:%S %p', '%m/%d/%y %I:%M %p', '%d %B %Y', '%d %b %Y', '%d %B %y', '%d %b %y', '%d,%m,%Y,%I:%M %p', '%m,%d,%Y,%I:%M:%S %p', '%Y,%m,%d,%H:%M:%S', '%m,%d,%y,%I:%M:%S %p', '%d,%b,%Y,%I:%M %p', '%d/%m/%Y %H:%M:%S.%f', '%Y-%m-%dT%H:%M:%S.%fZ', '%Y-%m-%dT%H:%M:%S.%f%z','%m-%d-%Y, %I:%M %p','%Y-%m-%dT%H:%M:%S+00:00','%Y-%m-%dT%H:%M:%S','%Y-%m-%dT%H:%MZ','%Y-%m-%dT%H:%M:%S+0000','%Y-%m-%dT%H:%M:%S+01:00','%Y-%m-%dT%H:%M:%S+0100','%Y-%m-%dT%H:%M:%S+0200','%Y-%m-%dT%H:%M:%S+0300','%Y-%m-%dT%H:%M:%S+0400','%Y-%m-%dT%H:%M:%S+0500','%Y-%m-%dT%H:%M:%S+0600','%Y-%m-%dT%H:%M:%S+0700','%Y-%m-%dT%H:%M:%S+0800','%Y-%m-%dT%H:%M:%S+0900','%Y-%m-%dT%H:%M:%S+01:00','%Y-%m-%dT%H:%M:%S+02:00','%Y-%m-%dT%H:%M:%S+03:00','%Y-%m-%dT%H:%M:%S+04:00','%Y-%m-%dT%H:%M:%S+05:00','%Y-%m-%dT%H:%M:%S+06:00','%Y-%m-%dT%H:%M:%S+07:00','%Y-%m-%dT%H:%M:%S+08:00','%Y-%m-%dT%H:%M:%S+09:00','%m-%d-%Y, %H:%M %p','%Y-%m-%dT%H:%M:%S-0100','%Y-%m-%dT%H:%M:%S-0200','%Y-%m-%dT%H:%M:%S-0300','%Y-%m-%dT%H:%M:%S-0400','%Y-%m-%dT%H:%M:%S-0500','%Y-%m-%dT%H:%M:%S-0600','%Y-%m-%dT%H:%M:%S-0700','%Y-%m-%dT%H:%M:%S-0800','%Y-%m-%dT%H:%M:%S-0900','%M/%d/%Y']
+    date_formats = [ '%Y-%m-%d %H:%M:%S', '%Y-%m-%d','%m-%d-%Y', '%Y/%m/%d,%H:%M:%S', '%d-%m-%Y','%d-%m-%Y,%H:%M:%S','%m-%d-%Y,%H:%M:%S', '%d-%m-%Y %H:%M:%S', '%B %d, %Y, %I:%M %p', '%b %d, %Y, %I:%M %p', '%Y%m%dT%H%M%S.%fZ', '%Y%m%dT%H%M%S.%f%z', '%Y-%m-%dT%H:%M:%SZ', '%Y-%m-%dT%H:%M:%S.%fZ', '%Y-%m-%dT%H:%M:%S.%f%z', '%Y-%m-%dT%H:%M:%S.%f', '%Y/%m/%d', '%d.%m.%Y', '%d.%m.%Y %H:%M:%S', '%d/%m/%Y %H:%M:%S', '%d/%m/%Y %H:%M', '%d/%m/%y %H:%M:%S', '%d/%m/%y %H:%M', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %I:%M:%S %p', '%m/%d/%Y %I:%M %p', '%m/%d/%y %I:%M:%S %p', '%m/%d/%y %I:%M %p', '%d %B %Y', '%d %b %Y', '%d %B %y', '%d %b %y', '%d,%m,%Y,%I:%M %p', '%m,%d,%Y,%I:%M:%S %p', '%Y,%m,%d,%H:%M:%S', '%m,%d,%y,%I:%M:%S %p', '%d,%b,%Y,%I:%M %p', '%d/%m/%Y %H:%M:%S.%f', '%Y-%m-%dT%H:%M:%S.%fZ', '%Y-%m-%dT%H:%M:%S.%f%z','%m-%d-%Y, %I:%M %p','%Y-%m-%dT%H:%M:%S+00:00','%Y-%m-%dT%H:%M:%S','%Y-%m-%dT%H:%MZ','%Y-%m-%dT%H:%M:%S+0000','%Y-%m-%dT%H:%M:%S+01:00','%Y-%m-%dT%H:%M:%S+0100','%Y-%m-%dT%H:%M:%S+0200','%Y-%m-%dT%H:%M:%S+0300','%Y-%m-%dT%H:%M:%S+0400','%Y-%m-%dT%H:%M:%S+0500','%Y-%m-%dT%H:%M:%S+0600','%Y-%m-%dT%H:%M:%S+0700','%Y-%m-%dT%H:%M:%S+0800','%Y-%m-%dT%H:%M:%S+0900','%Y-%m-%dT%H:%M:%S+01:00','%Y-%m-%dT%H:%M:%S+02:00','%Y-%m-%dT%H:%M:%S+03:00','%Y-%m-%dT%H:%M:%S+04:00','%Y-%m-%dT%H:%M:%S+05:00','%Y-%m-%dT%H:%M:%S+06:00','%Y-%m-%dT%H:%M:%S+07:00','%Y-%m-%dT%H:%M:%S+08:00','%Y-%m-%dT%H:%M:%S+09:00','%m-%d-%Y, %H:%M %p','%Y-%m-%dT%H:%M:%S-0100','%Y-%m-%dT%H:%M:%S-0200','%Y-%m-%dT%H:%M:%S-0300','%Y-%m-%dT%H:%M:%S-0400','%Y-%m-%dT%H:%M:%S-0500','%Y-%m-%dT%H:%M:%S-0600','%Y-%m-%dT%H:%M:%S-0700','%Y-%m-%dT%H:%M:%S-0800','%Y-%m-%dT%H:%M:%S-0900','%Y-%m-%dT%H:%M:%S-01:00','%Y-%m-%dT%H:%M:%S-02:00','%Y-%m-%dT%H:%M:%S-03:00','%Y-%m-%dT%H:%M:%S-04:00','%Y-%m-%dT%H:%M:%S-05:00','%Y-%m-%dT%H:%M:%S-06:00','%Y-%m-%dT%H:%M:%S-07:00','%Y-%m-%dT%H:%M:%S-08:00','%Y-%m-%dT%H:%M:%S-09:00']
 
 
     for date_format in date_formats:
@@ -114,7 +113,7 @@ def date_formating(date_string):
             except:
                 pass
             
-            #Months (25 months ago)
+            #Days (25 months ago)
             try:      
                 match = re.search("(\d+) month", date_string) or re.search("(\d+) Month", date_string) or re.search("(\d+) months ago", date_string) or re.search("(\d+) Months", date_string) 
                 if match:
@@ -132,7 +131,7 @@ def date_formating(date_string):
                                
             # today with minutes              
             try:      
-                match = re.search("(\d+) minutes", date_string) or re.search("(\d+) Minutes", date_string) or re.search("(\d+) min", date_string) or re.search("(\d+) Min", date_string) or re.search("(\d+) min.", date_string) or re.search("(\d+) Min.", date_string) or re.search("Today,(\d+) minutes", date_string) or re.search("Today,(\d+) Minutes", date_string) or re.search("Today,(\d+) min", date_string) or re.search("Today,(\d+) Min", date_string) or re.search("Today,(\d+) min.", date_string) or re.search("Today,(\d+) Min.", date_string)  or re.search("today,(\d+) minutes", date_string) or re.search("today,(\d+) Minutes", date_string) or re.search("today,(\d+) min", date_string) or re.search("today,(\d+) Min", date_string) or re.search("today,(\d+) min.", date_string) or re.search("today,(\d+) Min.", date_string)
+                match = re.search("(\d+) minutes", date_string) or re.search("(\d+) Minutes", date_string) or re.search("(\d+) min", date_string)  or re.search("(\d+) MIN", date_string) or re.search("(\d+) Min", date_string) or re.search("(\d+) min.", date_string) or re.search("(\d+) Min.", date_string) or re.search("Today,(\d+) minutes", date_string) or re.search("Today,(\d+) Minutes", date_string) or re.search("Today,(\d+) min", date_string) or re.search("Today,(\d+) Min", date_string) or re.search("Today,(\d+) min.", date_string) or re.search("Today,(\d+) Min.", date_string)  or re.search("today,(\d+) minutes", date_string) or re.search("today,(\d+) Minutes", date_string) or re.search("today,(\d+) min", date_string) or re.search("today,(\d+) Min", date_string) or re.search("today,(\d+) min.", date_string) or re.search("today,(\d+) Min.", date_string)
                 if match:
                     minutes = int(match.group(1))
                 else:
@@ -262,37 +261,37 @@ def date_formating(date_string):
                 pass    
 
             # January 29, 2023, 04:14
-            try:
-                if(date_pattern ==r'(\w+?)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{2}):(\d{2})'):
+            # try:
+            #     if(date_pattern ==r'(\w+?)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{2}):(\d{2})'):
                     
-                    date_pattern =r'(\w+?)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{2}):(\d{2})'
+            #         date_pattern =r'(\w+?)\s+(\d{1,2}),\s*(\d{4}),\s*(\d{2}):(\d{2})'
 
-                    match = re.match(date_pattern, date_string)
-                    year = int(match.group(3))
-                    month = match.group(1)
-                    day = int(match.group(2))
-                    hour = int(match.group(4))
-                    minute = int(match.group(5))
+            #         match = re.match(date_pattern, date_string)
+            #         year = int(match.group(3))
+            #         month = match.group(1)
+            #         day = int(match.group(2))
+            #         hour = int(match.group(4))
+            #         minute = int(match.group(5))
                     
-                    dt = datetime(year, datetime.strptime(month, '%B').month, day, hour, minute, 0)
+            #         dt = datetime(year, datetime.strptime(month, '%B').month, day, hour, minute, 0)
 
-                    final_string = dt.strftime('%Y-%m-%d %H:%M:%S')
-                    return final_string
-                else:
-                    date_pattern = r'(\w+?)\s+(\d{1,2})'
+            #         final_string = dt.strftime('%Y-%m-%d %H:%M:%S')
+            #         return final_string
+            #     else:
+            #         date_pattern = r'(\w+?)\s+(\d{1,2})'
 
-                    match = re.match(date_pattern, date_string)
-                    month = match.group(1)
-                    day = int(match.group(2))
+            #         match = re.match(date_pattern, date_string)
+            #         month = match.group(1)
+            #         day = int(match.group(2))
 
-                    year = datetime.now().year
+            #         year = datetime.now().year
 
-                    dt = datetime(year, datetime.strptime(month, '%B').month, day, 0, 0, 0)
+            #         dt = datetime(year, datetime.strptime(month, '%B').month, day, 0, 0, 0)
 
-                    final_string = dt.strftime('%Y-%m-%d %H:%M:%S')
-                    return final_string
-            except:
-                pass   
+            #         final_string = dt.strftime('%Y-%m-%d %H:%M:%S')
+            #         return final_string
+            # except:
+            #     pass   
             
             try:
                 input_regex = r'(\d{2})-(\d{2})-(\d{4}),\s+(\d{2}):(\d{2})\s+(AM|PM)'
@@ -402,23 +401,9 @@ def date_formating(date_string):
                 return final_string
 
             except:
-                pass 
-            
-            # Sep 24 2021 21:53:04
-            try:
-                pattern = r'([a-zA-Z]{3}\s\d{1,2}\s\d{4})\s(\d{2}:\d{2}:\d{2})'
-                match = re.match(pattern, date_string)
-                date_str = match.group(1)
-                time_str = match.group(2)
-                dt = datetime.strptime(date_str + ' ' + time_str, '%b %d %Y %H:%M:%S')
-                print(dt)
-                final_string = dt.strftime('%Y-%m-%d %H:%M:%S')
-                print(final_string)   
-                
-                return final_string
-            except:
-                pass    
-                
+                pass   
+
+
 
 def date_coverter(input_date):
     try:
@@ -470,4 +455,12 @@ def date_coverter(input_date):
                 #return date
 
 # print(date_coverter("2/14/2023")) #add input
-# print(date_coverter("May 20 2021 10:04:31")) #add input
+# print(date_coverter("November 2, 2022")) #add input
+
+
+# Saturday at 01:25
+# March 2
+# February 3
+# November 2, 2022
+# December 3, 2022
+# May 20 2021 10:~04:31

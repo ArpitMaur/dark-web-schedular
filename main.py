@@ -2,7 +2,7 @@ from databaseConnection import *
 from mainScrapping import *
 from datetime import date,datetime,timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
-from flag import sendLog,sendData
+# from flag import sendLog,sendData
 from flag import isNodeBusy
 from chechSPA_nonSPA import getfunction
 from app import app
@@ -31,10 +31,10 @@ def scrapping():
                 getfunction(urlList[0])    
             else:
                 print("Every url Scrapped!!") 
-                sendLog("Every url Scrapped!!") 
+                # sendLog("Every url Scrapped!!") 
     else:
         print("Node is Busy!!")        
-        sendLog("Node is Busy!!")        
+        # sendLog("Node is Busy!!")        
         
 
 
@@ -44,14 +44,17 @@ def hello_world():
 
 
 scrapping()
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(scrapping,'interval',minutes=1)
+sched.start()
 
 # main flask function
 if __name__ == '__main__':
     # socketio.run(app, debug=True)
-    app.run(debug=True)
+    app.run()
 
 
 # Scheduler..
-sched = BackgroundScheduler(daemon=True)
-sched.add_job(scrapping,'interval',minutes=1)
-sched.start()
+# sched = BackgroundScheduler(daemon=True)
+# sched.add_job(scrapping,'interval',minutes=1)
+# sched.start()

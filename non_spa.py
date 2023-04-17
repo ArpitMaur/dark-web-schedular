@@ -119,7 +119,9 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
         if title !='Not found':
             date_d= date_coverter(date)
             if (date_d.lower()=='not found' or date_d.lower()=='none'):
-                date_d =datetime.now().timestamp()
+                date_d =int(datetime.now().timestamp())
+                date_d =str(date_d)+"$"
+                
             print("Data storing in DB....")  
             # sendLog("Data storing in DB....")  
             db_dict = {'Title': title, 'Body': body_data, 'Date': date_d, 'Url': lnk}  #change here
@@ -129,7 +131,8 @@ def scrap_nonSpa(driver,post_links,title_xpath,body_xpath,date_xpath):
             if existing_data:
                 date_d= date_coverter(date)
                 if (date_d.lower()=='not found' or date_d.lower()=='none'):
-                    date_d =datetime.now().timestamp()
+                    date_d =int(datetime.now().timestamp())
+                    date_d =str(date_d)+"$"
                 if existing_data['Body'] != body_data or existing_data['Date'] != date:
                     update_query = {'$set': {'Body': body_data, 'Date': date_d, 'Url': lnk}}
                     collection2.update_one({'Title': title}, update_query)
@@ -246,4 +249,4 @@ def Non_spa(darkweb_url, iterator, title_xpath, body_xpath,date_xpath=None,scrol
             scrap_nonSpa (driver,post_links,title_xpath,body_xpath,date_xpath)   
 
         driver.close()
-    # stop_xvfb(xvfb_display)
+    stop_xvfb(xvfb_display)

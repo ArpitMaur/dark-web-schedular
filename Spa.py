@@ -116,7 +116,8 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
         if title !='Not found':
             date_d= date_coverter(date)
             if (date_d.lower()=='not found' or date_d.lower()=='none'):
-                date_d =datetime.now().timestamp()
+                date_d =int(datetime.now().timestamp())
+                date_d =str(date_d)+"$"
             print("Data storing in DB....")        
             # sendLog("Data storing in DB....")        
             db_dict = {'Title': title, 'Body': body_data, 'Date': date_d, 'Url': link} #change here
@@ -127,7 +128,8 @@ def scrap(driver,iterator,title_xpath,body_xpath,date_xpath,link):
             if existing_data:
                 date_d= date_coverter(date)
                 if (date_d.lower()=='not found' or date_d.lower()=='none'):
-                    date_d =datetime.now().timestamp()
+                    date_d =int(datetime.now().timestamp())
+                    date_d =str(date_d)+"$"
                 if existing_data['Body'] != body_data or existing_data['Date'] != date:
                     update_query = {'$set': {'Body': body_data, 'Date': date_d, 'Url': link}}
                     collection2.update_one({'Title': title}, update_query)
