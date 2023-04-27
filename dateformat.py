@@ -445,7 +445,8 @@ def date_coverter(input_date):
             except:
                 return input_date
 
-print(date_coverter('This post was last modified: March 26, 2022, 12:12 AM by Ura.)')) #add input
+# print(date_coverter('This post was last modified: March 26, 2022, 12:12 AM by Ura.)')) #add input
+print(date_coverter('Nov 7, 2021 at 11:25 PM')) #add input
 
 
 # ----done ------

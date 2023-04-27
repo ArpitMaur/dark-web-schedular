@@ -9,8 +9,10 @@ isNodeBusy =False
 
 def sendData(data):
     # socketio.emit('data',data)
-    requests.post('http://127.0.0.1/sendData',json={'data':data})
+    # requests.post('http://127.0.0.1/sendData',json={'data':data})
+    pass
 
 def sendLog(log):
-    requests.post('http://127.0.0.1/sendLog',json={'msg':log})
+    # requests.post('http://127.0.0.1/sendLog',json={'msg':log})
+    pass
     # socketio.emit('log',log) 
